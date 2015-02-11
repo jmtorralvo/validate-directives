@@ -27,8 +27,9 @@
                 var validRegex = /^[XYZ]?([0-9]{7,8})([A-Z])$/i;
                 var dniLetters = 'TRWAGMYFPDXBNJZSQVHLCKE';
 
-                ctrl.$parsers.unshift(function(value) {
+                ctrl.$validators.validnif = function(value){
                     var valid = false;
+
                     if ( value && value.length === 9 ) {
                         value = value.toUpperCase().replace(/\s/, '');
                         var niePrefix = value.charAt(0);
@@ -46,13 +47,12 @@
                         value = niePrefix + value.substr(1);
                         if (validRegex.test(value)) {
                             valid = (value.charAt(8) === dniLetters.charAt(parseInt(value, 10) % 23));
+                            return valid;
                         }
+                        return valid;
                     }
-                    
-                    ctrl.$setValidity('validnif', valid);                    
-                    return valid ? value : undefined;
-                });
-
+                    return valid;
+                };
             }
         };
     });

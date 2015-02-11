@@ -77,9 +77,7 @@
 
                         if(primerCaracter.match(/^[FJKNPQRSUVW]$/)){
                             //Empieza por .... Comparamos la última letra
-                            var a = String.fromCharCode(64+unidad).toUpperCase();
-                            var b = value.substr(value.length-1,1).toUpperCase();
-                            if(a===b){
+                            if(String.fromCharCode(64+unidad).toUpperCase()===value.substr(value.length-1,1).toUpperCase()){
                                 valid = true;
                             }    
                         }
