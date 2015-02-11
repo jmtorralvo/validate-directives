@@ -13,9 +13,6 @@
     <input type="text" name="idDocument" class="form-control input-lg" 
                     ng-model="orderData.clientData.idDocument" 
                     maxlength="40" required ed-validate-cif>
-
- Source:
-http://www.lawebdelprogramador.com/codigo/JavaScript/1992-Validar-un-CIF-NIF-y-DNI.html
 */
 
 
